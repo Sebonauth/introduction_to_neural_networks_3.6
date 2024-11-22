@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrapping Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none; /* Initially hidden */
+            opacity: 0; /* Initially invisible for fade-in effect */
+            transition: opacity 0.5s ease-in; /* Fade-in effect */
+        }
+        h1, h3, h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p, li {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .continue-button, .faq-section {
+            text-align: left;
+        }
+        .faq-section {
+            background-color: #fffbea; /* Light yellow background */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .faq-section h3 {
+            color: #ffcc00; /* Bright yellow heading */
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .faq-section h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section id="section1">
+        <h1>Review and Reflect</h1>
+        <p>Let's gather what we've learned on our journey through the world of perceptrons:</p>
+        <ul>
+            <li>Perceptrons are simple decision-makers that weigh evidence and make binary choices</li>
+            <li>They learn by adjusting their weights and bias when they make mistakes</li>
+            <li>They can only solve problems that can be separated by a straight line</li>
+            <li>Their limitations led to the development of more powerful neural networks</li>
+        </ul>
+        <div class="continue-button" onclick="showNextSection(2)">Continue</div>
+    </section>
+
+    <section id="section2">
+        <p>Think of the perceptron as the first chapter in an exciting story. While it may seem simple, it contains all the key ideas we'll build upon:</p>
+        <ul>
+            <li>Weighted inputs</li>
+            <li>Learning from mistakes</li>
+            <li>Decision boundaries</li>
+            <li>The importance of network architecture</li>
+        </ul>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+    </section>
+
+    <section id="section3">
+        <div class="faq-section">
+            <h3>Frequently Asked!</h3>
+            <h4>If perceptrons are so limited, why do we still study them?</h4>
+            <p>Think of perceptrons like the alphabet of neural networks. Just as you need to understand letters before you can read words, understanding perceptrons is essential before tackling more complex networks. Plus, many modern neural network innovations are really just clever ways of combining lots of perceptron-like units!</p>
+        </div>
+    </section>
+
+    <script>
+        // Show the first section initially
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1"; // Make the first section visible
+
+        // Function to show the next section with fade-in and then scroll to it
+        function showNextSection(nextSectionId) {
+            const currentButton = event.target;
+            const nextSection = document.getElementById("section" + nextSectionId);
+            
+            // Hide the clicked button
+            currentButton.style.display = "none";
+            
+            // Show the next section with a fade-in effect
+            nextSection.style.display = "block";
+            setTimeout(() => {
+                nextSection.style.opacity = "1"; // Fade in the section
+            }, 10);
+
+            // Scroll to the new section after it fades in
+            setTimeout(() => {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 500); // Delay scrolling until fade-in completes
+        }
+    </script>
+</body>
+</html>
